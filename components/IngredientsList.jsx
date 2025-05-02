@@ -1,4 +1,6 @@
-export default function IngredientsList({getRecipe, ingredients}){
+import Loader from "./Loader"
+
+export default function IngredientsList({getRecipe, ingredients, loading}){
     const listItems = ingredients.map(item => (
       <li key={item}>{item}</li> 
      
@@ -15,7 +17,8 @@ export default function IngredientsList({getRecipe, ingredients}){
         <h3>Ready for a recipe?</h3>
         <p>Generate a recipe from your list of ingredients.</p>
       </div>
-      <button onClick={getRecipe}>Get a recipe</button>
+      {loading && <Loader/>                                                                                                                                                                                       }
+      <button onClick={getRecipe} disabled={loading}>{loading ? 'Thinking recipe...': 'Get a Recipe'}</button>
     </div>}
   </section>
     
