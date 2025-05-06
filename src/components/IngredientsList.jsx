@@ -1,6 +1,6 @@
 import Loader from "./Loader"
 
-export default function IngredientsList({getRecipe, ingredients, loading}){
+export default function IngredientsList({getRecipe, ingredients, loading, ref}){
     const listItems = ingredients.map(item => (
       <li key={item}>{item}</li> 
      
@@ -12,8 +12,8 @@ export default function IngredientsList({getRecipe, ingredients, loading}){
     <ul className="list-items">
       {listItems}
     </ul>
-    {ingredients.length > 3 && <div className="recipe">
-      <div>
+    {ingredients.length> 3 && <div className="recipe">
+      <div ref={ref}> 
         <h3>Ready for a recipe?</h3>
         <p>Generate a recipe from your list of ingredients.</p>
       </div>
